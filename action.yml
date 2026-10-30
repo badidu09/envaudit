@@ -1,0 +1,24 @@
+name: envaudit
+description: Keep your code, .env.example and .env in sync, and catch secrets in example files.
+branding:
+  icon: shield
+  color: green
+inputs:
+  path:
+    description: Directory to audit
+    default: .
+  args:
+    description: Extra command-line options, such as --strict
+    default: ""
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      env:
+        INPUT_PATH: ${{ inputs.path }}
+        INPUT_ARGS: ${{ inputs.args }}
+      # INPUT_ARGS is left unquoted so that it splits into separate options;
+      # globbing stays off so that a pattern like VERCEL_* reaches the CLI intact.
+      run: |
+        set -f
+        node "$GITHUB_ACTION_PATH/bin/envaudit.js" "$INPUT_PATH" $INPUT_ARGS

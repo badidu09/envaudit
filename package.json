@@ -1,0 +1,16 @@
+{
+  "name": "envaudit",
+  "version": "1.0.0",
+  "description": "Zero-dependency CLI that keeps your code, .env.example and .env in sync, and catches secrets committed to examples.",
+  "keywords": ["env", "dotenv", "environment-variables", "cli", "lint", "secrets", "ci", "devtools"],
+  "license": "MIT",
+  "author": "badidu09",
+  "type": "module",
+  "bin": { "envaudit": "bin/envaudit.js" },
+  "files": ["bin", "src"],
+  "engines": { "node": ">=20" },
+  "scripts": { "test": "node --test" },
+  "repository": { "type": "git", "url": "git+https://github.com/badidu09/envaudit.git" },
+  "homepage": "https://github.com/badidu09/envaudit#readme",
+  "bugs": "https://github.com/badidu09/envaudit/issues"
+}
